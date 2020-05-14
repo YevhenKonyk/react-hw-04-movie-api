@@ -49,6 +49,5 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5"
-  },
-  "homepage": "https://YevhenKonyk.github.io/react-hw-04-movie-api/"
+  }
 }
