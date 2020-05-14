@@ -10,4 +10,8 @@ export const fetchDailyTrendingMovies = () => {
     .then(responce => responce.data);
 };
 
-export const fetchMovieById = () => null;
+export const fetchMovieById = id => {
+  return axios
+    .get(`${BASE_URL}movie/${id}?api_key=${API_KEY}`)
+    .then(responce => responce.data);
+};
