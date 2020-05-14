@@ -1,5 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const MovieDetailsPage = () => <>Movie Details Page</>;
+const getMovieIdFromProps = props => props.match.params.movieId;
 
-export default MovieDetailsPage;
+export default class MovieDetailsPage extends Component {
+  state = {};
+
+  render() {
+    return (
+      <>
+        Movie Details Page
+        {getMovieIdFromProps(this.props)}
+      </>
+    );
+  }
+}
