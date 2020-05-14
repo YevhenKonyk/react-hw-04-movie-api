@@ -1,0 +1,18 @@
+.header {
+  padding: 16px 0;
+}
+
+.list {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.active {
+  color: palevioletred;
+}

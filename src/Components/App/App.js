@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import Navigation from '../Navigation/Navigation';
+
 import HomePage from '../../pages/HomePage';
 import MoviesPage from '../../pages/MoviesPage';
 import MovieDetailPage from '../../pages/MovieDetailsPage';
@@ -12,6 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <>
+        <Navigation />
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/movies/:movieId" component={MovieDetailPage} />
