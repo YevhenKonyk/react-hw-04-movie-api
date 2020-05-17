@@ -41,6 +41,10 @@ label {
   cursor: pointer;
 }
 
+section {
+  padding: 16px 0;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
