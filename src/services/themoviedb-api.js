@@ -10,8 +10,22 @@ export const fetchDailyTrendingMovies = () => {
     .then(responce => responce.data);
 };
 
-export const fetchMovieById = id => {
+export const fetchMovieById = movieId => {
   return axios
-    .get(`${BASE_URL}movie/${id}?api_key=${API_KEY}`)
+    .get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`)
     .then(responce => responce.data);
+};
+
+export const fetchMovieCredits = movieId => {
+  return axios
+    .get(`${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
+    .then(responce => responce.data)
+    .then(data => data.cast);
+};
+
+export const fetchMovieReviews = movieId => {
+  return axios
+    .get(`${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}`)
+    .then(responce => responce.data)
+    .then(data => data.results);
 };
