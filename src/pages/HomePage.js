@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as MoviesAPI from '../services/themoviedb-api';
 
 export default class HomePage extends Component {
-  state = { trendingMovies: null };
+  state = { trendingMovies: [] };
 
   componentDidMount() {
     MoviesAPI.fetchDailyTrendingMovies().then(({ results: trendingMovies }) =>
@@ -18,7 +18,7 @@ export default class HomePage extends Component {
       <>
         <h1>Trending today</h1>
         {/* TODO: Rewrite to component */}
-        {trendingMovies && (
+        {trendingMovies.length > 0 && (
           <ul>
             {trendingMovies.map(movie => (
               <li key={movie.id}>
