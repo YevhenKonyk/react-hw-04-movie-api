@@ -31,6 +31,7 @@ export default class MovieReviewsPage extends Component {
             ))}
           </ul>
         )}
+        {reviews.length === 0 && <p>No reviews provided</p>}
       </>
     );
   }
