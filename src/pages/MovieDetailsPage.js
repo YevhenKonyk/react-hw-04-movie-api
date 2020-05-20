@@ -12,6 +12,15 @@ export default class MovieDetailsPage extends Component {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired,
     }).isRequired,
+    location: PropTypes.shape({
+      state: PropTypes.shape({
+        from: PropTypes.string,
+      }),
+    }),
+  };
+
+  static defaultProps = {
+    location: {},
   };
 
   state = {
@@ -25,6 +34,12 @@ export default class MovieDetailsPage extends Component {
   }
 
   handleGoBack = () => {
+    if (this.props.location.state) {
+      this.props.history.push(this.props.location.state.from);
+
+      return;
+    }
+
     this.props.history.push('/');
   };
 
