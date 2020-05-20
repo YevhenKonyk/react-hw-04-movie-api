@@ -10,6 +10,14 @@ export const fetchDailyTrendingMovies = () => {
     .then(responce => responce.data);
 };
 
+export const fetchMoviesByQuery = query => {
+  return axios
+    .get(
+      `${BASE_URL}search/movie?query=${query}&language=en-US&page=1&include_adult=false&api_key=${API_KEY}`,
+    )
+    .then(responce => responce.data);
+};
+
 export const fetchMovieById = movieId => {
   return axios
     .get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`)
