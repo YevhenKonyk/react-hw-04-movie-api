@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Route } from 'react-router-dom';
-
-import MovieCreditsPage from '../../pages/MovieCreditsPage';
-import MovieReviewsPage from '../../pages/MovieReviewsPage';
-
 import styles from './MovieDetails.module.css';
+import Loader from '../Loader/Loader';
+
+/** Dynamic imports */
+const MovieCreditsPage = lazy(() =>
+  import(
+    '../../pages/MovieCreditsPage' /* webpackChunkName: "movie-credits-page" */
+  ),
+);
+
+const MovieReviewsPage = lazy(() =>
+  import(
+    '../../pages/MovieReviewsPage' /* webpackChunkName: "movie-reviews-page" */
+  ),
+);
 
 const getMoviePosterUrl = path => `https://image.tmdb.org/t/p/w500/${path}`;
 const getMovieReleaseYear = releaseDate => new Date(releaseDate).getFullYear();
@@ -67,8 +77,10 @@ const MovieDetails = ({ item, onGoBack }) => (
       </>
     )}
     {/* Вложенный раут */}
-    <Route path="/movies/:movieId/credits" component={MovieCreditsPage} />
-    <Route path="/movies/:movieId/reviews" component={MovieReviewsPage} />
+    <Suspense fallback={<Loader />}>
+      <Route path="/movies/:movieId/credits" component={MovieCreditsPage} />
+      <Route path="/movies/:movieId/reviews" component={MovieReviewsPage} />
+    </Suspense>
   </section>
 );
 
