@@ -12,7 +12,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "surge": "^0.21.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +24,7 @@
     "lint:fix": "eslint src/**/*.js --fix",
     "lint:format": "prettier src/**/*.{js,css,json} --write",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "mv build/index.html build/200.html && surge -p build -d movies-api-demo.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
